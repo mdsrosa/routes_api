@@ -1,4 +1,4 @@
-class CreateRoutes < ActiveRecord::Migration
+class Routes < ActiveRecord::Migration
   def change
     create_table :routes do |t|
       t.string :origin_point, null: false
