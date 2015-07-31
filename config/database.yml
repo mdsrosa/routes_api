@@ -1,6 +1,13 @@
 ---
-adapter: postgresql
-host: localhost
-username: 'matheusrosa'
-password: ''
-database: 'walmart_challenge_api_test'
+development:
+  adapter: postgresql
+  host: localhost
+  username: 'matheusrosa'
+  password: ''
+  database: 'walmart_challenge_api'
+test:
+  adapter: postgresql
+  host: localhost
+  username: 'matheusrosa'
+  password: ''
+  database: 'walmart_challenge_api_test'
