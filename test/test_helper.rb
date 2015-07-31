@@ -1,4 +1,13 @@
 $:.unshift File.expand_path('./../../lib', __FILE__)
 
+require './config/environment'
 require 'minitest/autorun'
-require 'walmart_challenge_api'
+
+module WithRollback
+  def temporarily(&block)
+    ActiveRecord::Base.connection.transaction do
+      block.call
+      raise ActiveRecord::Rollback
+    end
+  end
+end
