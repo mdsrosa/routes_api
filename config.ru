@@ -6,7 +6,9 @@ require './config/environment'
 require 'sinatra/base'
 require 'puma'
 require 'api'
+require 'rack/contrib'
 
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
+use Rack::PostBodyContentTypeParser
 
 run WalmartChallengeAPI

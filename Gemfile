@@ -4,6 +4,7 @@ gem 'activerecord', require: 'active_record'
 gem 'pg'
 gem 'sinatra'
 gem 'puma', require: false
+gem 'rack-contrib'
 
 group :development do
   gem 'racksh', require: false
