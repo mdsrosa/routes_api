@@ -22,7 +22,7 @@ class APITest < MiniTest::Test
     load(seed_file) if File.exists?(seed_file)
 
     data = '{"origin_point": "A", "destination_point": "D", "autonomy": 10, "fuel_price": 2.5}'
-    post '/routes/calculate-cost', JSON.parse(data)
+    post '/routes/calculate-cost', JSON.parse(data), { 'Content-Type' => 'application/json' }
     expected = "{\"cost\":6.25,\"route\":\"A B D\"}"
     assert_equal expected, last_response.body
   end

@@ -12,7 +12,6 @@ class WalmartChallengeAPI < Sinatra::Base
   end
 
   post '/routes/calculate-cost' do
-    routes = routes_matrix
     origin_point = params[:origin_point]
     destination_point = params[:destination_point]
     autonomy = params[:autonomy].to_f
