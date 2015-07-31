@@ -5,11 +5,15 @@ require './config/environment'
 require 'minitest/autorun'
 require 'database_cleaner'
 
-module WithRollback
-  def temporarily(&block)
-    ActiveRecord::Base.connection.transaction do
-      block.call
-      raise ActiveRecord::Rollback
-    end
+DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.clean_with(:truncation)
+
+class MiniTest::Test
+  def setup
+    DatabaseCleaner.start
+  end
+
+  def teardown
+    DatabaseCleaner.clean
   end
 end

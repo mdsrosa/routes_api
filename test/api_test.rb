@@ -3,22 +3,8 @@ require 'rack/test'
 require 'sinatra/base'
 require 'api'
 
-DatabaseCleaner.strategy = :transaction
-DatabaseCleaner.clean_with(:truncation)
-
-class MiniTest::Spec
-  before :each do
-    DatabaseCleaner.start
-  end
-
-  after :each do
-    DatabaseCleaner.clean
-  end
-end
-
 class APITest < MiniTest::Test
   include Rack::Test::Methods
-  include WithRollback
 
   def app
     WalmartChallengeAPI
@@ -30,17 +16,18 @@ class APITest < MiniTest::Test
   end
 
   def test_show_all_routes
-    temporarily do
-      route = Route.create(:origin_point => 'A', :destination_point => 'D', :distance => 20)
-      get '/routes'
-      expected = "[{\"id\":#{route.id},\"origin_point\":\"A\",\"destination_point\":\"D\",\"distance\":20}]"
-      assert_equal expected, last_response.body
-    end
+    route = Route.create(:origin_point => 'A', :destination_point => 'D', :distance => 20)
+    get '/routes'
+    expected = "[{\"id\":#{route.id},\"origin_point\":\"A\",\"destination_point\":\"D\",\"distance\":20}]"
+    assert_equal expected, last_response.body
   end
 
-  def test_calculate_minimum_cost_route
+  def test_calculate_cost
+    seed_file = File.join('db/seeds.rb')
+    load(seed_file) if File.exists?(seed_file)
+
     data = '{"origin_point": "A", "destination_point": "D", "autonomy": 10, "fuel_price": 2.5}'
-    post '/routes/calculate-cost', JSON.parse(data), { "content_type" => "application/json"}
+    post '/routes/calculate-cost', JSON.parse(data)
     expected = "{\"cost\":6.25,\"route\":\"A B D\"}"
     assert_equal expected, last_response.body
   end
