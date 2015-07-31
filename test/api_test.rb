@@ -10,11 +10,6 @@ class APITest < MiniTest::Test
     WalmartChallengeAPI
   end
 
-  def test_hello_world
-    get '/'
-    assert_equal 'Walmart Challenge API :)', last_response.body
-  end
-
   def test_show_all_routes
     route = Route.create(:origin_point => 'A', :destination_point => 'D', :distance => 20)
     get '/routes'
