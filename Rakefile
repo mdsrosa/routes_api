@@ -47,6 +47,22 @@ namespace :db do
     require './config/environment'
     ActiveRecord::Migrator.migrate('db/migrate')
   end
+
+  desc 'Load the seed data from db/seeds.rb'
+  task :seed do
+    require 'bundler'
+    Bundler.require
+    require './config/environment'
+    seed_file = File.join('db/seeds.rb')
+    if File.exist?(seed_file)
+      puts 'File db/seeds.rb found!'
+      puts 'Loading...'
+      load(seed_file)
+      puts 'Successfully loaded.'
+    else
+      puts 'File db/seeds.rb not found!'
+    end
+  end
 end
 
 Rake::TestTask.new :test do |t|
