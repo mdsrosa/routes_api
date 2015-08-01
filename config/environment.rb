@@ -7,4 +7,4 @@ environment = ENV.fetch('RACK_ENV') { 'development' }
 config = DBConfig.new(environment).options
 ActiveRecord::Base.establish_connection(config)
 
-require 'walmart_challenge_api'
+require 'routes_api'

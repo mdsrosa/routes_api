@@ -1,4 +1,4 @@
 require 'models/route'
 
-module WalmartChallengeApi
+module RoutesAPI
 end

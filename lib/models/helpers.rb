@@ -1,4 +1,4 @@
-module WalmartChallengeAPIModule
+module RoutesModule
   module Helpers
     def routes_matrix
       routes = []

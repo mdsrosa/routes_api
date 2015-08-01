@@ -7,7 +7,7 @@ class APITest < MiniTest::Test
   include Rack::Test::Methods
 
   def app
-    WalmartChallengeAPI
+    RoutesAPIApp
   end
 
   def test_show_all_routes

@@ -11,4 +11,4 @@ require 'rack/contrib'
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
 use Rack::PostBodyContentTypeParser
 
-run WalmartChallengeAPI
+run RoutesAPIApp

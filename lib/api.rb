@@ -1,10 +1,10 @@
 require_relative './models/helpers'
 
-class WalmartChallengeAPI < Sinatra::Base
-  include WalmartChallengeAPIModule::Helpers
+class RoutesAPIApp < Sinatra::Base
+  include RoutesModule::Helpers
 
   get '/' do
-      'Walmart Challenge API :)'
+      'Routes API :)'
   end
 
   get '/routes' do
