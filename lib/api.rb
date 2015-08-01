@@ -46,9 +46,12 @@ class RoutesAPIApp < Sinatra::Base
     autonomy = params[:autonomy].to_f
     fuel_price = params[:fuel_price].to_f
 
-    path, distance = calculate_shortest_path(origin_point, destination_point)
-    cost = calculate_cost distance.to_f, autonomy, fuel_price
-
-    JSON.dump({ :cost => cost, :route => path.join(" ")})
+    begin
+      path, distance = calculate_shortest_path(origin_point, destination_point)
+      cost = calculate_cost distance.to_f, autonomy, fuel_price
+      JSON.dump({ :cost => cost, :route => path.join(" ")})
+    rescue PointNotFoundError => exception
+      JSON.dump({ :error => exception.message })
+    end
   end
 end

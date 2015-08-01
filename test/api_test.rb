@@ -67,4 +67,14 @@ class APITest < MiniTest::Test
     expected = "{\"error\":\"origin_point parameter is required\"}"
     assert_equal expected, last_response.body
   end
+
+  def test_calculate_cost_with_nonexistent_point
+    seed_file = File.join('db/seeds.rb')
+    load(seed_file) if File.exists?(seed_file)
+
+    data = '{"origin_point": "A", "destination_point": "X", "autonomy": 10, "fuel_price": 2.5}'
+    post '/routes/calculate-cost', JSON.parse(data), { 'Content-Type' => 'application/json' }
+    expected = "{\"error\":\"X point not found\"}"
+    assert_equal expected, last_response.body
+  end
 end
