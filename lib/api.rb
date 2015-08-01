@@ -6,11 +6,12 @@ class RoutesAPIApp < Sinatra::Base
   helpers Sinatra::Param
 
   set :raise_sinatra_param_exceptions, true
+  set :show_exceptions, false
+  set :raise_errors, true
 
   error Sinatra::Param::InvalidParameterError do
     {error: "#{env['sinatra.error'].param} #{env['sinatra.error'].message.downcase}"}.to_json
   end
-
 
   get '/' do
       'Routes API :)'
