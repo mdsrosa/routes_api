@@ -5,6 +5,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'puma', require: false
 gem 'rack-contrib'
+gem 'sinatra-param', require: 'sinatra/param'
 
 group :development do
   gem 'racksh', require: false

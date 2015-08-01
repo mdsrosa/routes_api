@@ -5,6 +5,8 @@ require './config/environment'
 require 'minitest/autorun'
 require 'database_cleaner'
 
+ActiveSupport::TestCase.test_order = :random
+
 DatabaseCleaner.strategy = :truncation, { :reset_ids => true }
 # DatabaseCleaner.clean_with(:truncation)
 

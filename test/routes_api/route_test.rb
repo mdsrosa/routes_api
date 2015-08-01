@@ -1,8 +1,18 @@
 require './test/test_helper'
 
-class RouteTest < MiniTest::Test
-  def test_it_exists
-    Route.create(:origin_point => 'A', :destination_point => 'D', :distance => 20)
-    assert_equal 1, Route.count
+class RouteTest < ActiveSupport::TestCase
+  test 'origin_point must be present' do
+    route = Route.create(origin_point: nil)
+    assert route.errors[:origin_point].any?
+  end
+
+  test 'destination_point must be present' do
+    route = Route.create(destination_point: nil)
+    assert route.errors[:destination_point].any?
+  end
+
+  test 'distance must be present' do
+    route = Route.create(distance: nil)
+    assert route.errors[:distance].any?
   end
 end
