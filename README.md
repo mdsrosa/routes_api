@@ -34,13 +34,7 @@ $ curl http://localhost:4567/routes
  {"id":3,"origin_point":"B","destination_point":"D","distance":15},
  {"id":4,"origin_point":"C","destination_point":"D","distance":30},
  {"id":5,"origin_point":"B","destination_point":"E","distance":50},
- {"id":6,"origin_point":"D","destination_point":"E","distance":30},
- {"id":7,"origin_point":"A","destination_point":"B","distance":10},
- {"id":8,"origin_point":"A","destination_point":"C","distance":20},
- {"id":9,"origin_point":"B","destination_point":"D","distance":15},
- {"id":10,"origin_point":"C","destination_point":"D","distance":30},
- {"id":11,"origin_point":"B","destination_point":"E","distance":50},
- {"id":12,"origin_point":"D","destination_point":"E","distance":30}]
+ {"id":6,"origin_point":"D","destination_point":"E","distance":30}]
 ```
 
 #### POST /routes
