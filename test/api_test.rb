@@ -24,6 +24,19 @@ class APITest < MiniTest::Test
     assert_equal expected, last_response.body
   end
 
+  def test_create_route_uniqueness
+    data = '{"origin_point":"A", "destination_point": "D", "distance": 20}'
+    post '/routes', JSON.parse(data), { 'Content-Type' => 'application/json' }
+    expected = "{\"id\":1,\"origin_point\":\"A\",\"destination_point\":\"D\",\"distance\":20}"
+
+    assert_equal expected, last_response.body
+
+    post '/routes', JSON.parse(data), { 'Content-Type' => 'application/json' }
+    expected = "{\"errors\":[\"origin_point: has already been taken\"]}"
+
+    assert_equal expected, last_response.body
+  end
+
   def test_create_route_invalid_data
     data = '{"origin_point": "A", "destination_point": "D", "distance": "A"}'
     post '/routes', JSON.parse(data), 'Content-Type' => 'application/json'
