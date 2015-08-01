@@ -6,8 +6,8 @@ API to calculate the shortest path and the cost to a given route (origin point a
 ###### **Considering you already have a ruby development environment setup.**
 
 ```bash
-git clone https://bitbucket.org/mdsrosa/walmart-challenge.git walmart_challenge_api
-cd walmart_challenge_api
+git clone https://bitbucket.org/mdsrosa/routes_api.git
+cd routes_api
 bundle install
 ```
 
