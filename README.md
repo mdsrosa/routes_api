@@ -20,7 +20,7 @@ rackup -p 4567 -s puma
 
 #### GET /routes
 
-This is endpoint lists all routes in the database.
+This endpoint lists all routes in the database.
 
 #### cURL Example
 
@@ -44,20 +44,40 @@ $ curl http://localhost:4567/routes
 ```
 
 #### POST /routes
-TODO
-
-#### POST /routes/calculate-cost
-
-This is endpoint calculates the cost.
+This endpoint creates a new route.
 
 #### Attributes
 
 Name            | Type | Description | Example
 ----------------|------|------------ |--------
-**origin_point**|string| The point of origin| `"A"`
-**destination_point**|string| The point of destination| `"D"`
-**autonomy**| integer|The vehicle's autonomy| `10`
-**fuel_price**| float|The fuel price|`2.5`
+**origin_point**| _string_ | The point of origin| `"A"`
+**destination_point**| _string_ | The point of destination| `"D"`
+**distance**| _integer_ |The vehicle's autonomy| `10`
+
+##### cURL Example
+```bash
+$ curl -X POST http://localhost:4567/routes \
+-H "Content-Type: application/json" \
+-d '{"origin_point": "A", "destination_point": "D", "distance": 10}'
+```
+
+##### Response Example
+```bash
+{"id":1,"origin_point":"A","destination_point":"D","distance":10}
+```
+
+#### POST /routes/calculate-cost
+
+This endpoint calculates the cost.
+
+#### Attributes
+
+Name            | Type | Description | Example
+----------------|------|------------ |--------
+**origin_point**| _string_ | The point of origin| `"A"`
+**destination_point**| _string_ | The point of destination| `"D"`
+**autonomy**| _integer_ |The vehicle's autonomy| `10`
+**fuel_price**| _float_ |The fuel price|`2.5`
 
 ##### cURL Example
 ```bash
@@ -66,7 +86,7 @@ $ curl -X POST http://localhost:4567/routes/calculate-cost \
 -d '{"origin_point": "A", "destination_point": "D", 
 	  "autonomy": 10, "fuel_price": 2.5}'
 ```
-#### Response Example
+##### Response Example
 ```json
 {"cost":6.25,"route":"A B D"}
 ```

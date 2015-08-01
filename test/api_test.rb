@@ -17,6 +17,13 @@ class APITest < MiniTest::Test
     assert_equal expected, last_response.body
   end
 
+  def test_create_route
+    data = '{"origin_point":"A", "destination_point": "D", "distance": 20}'
+    post '/routes', JSON.parse(data), { 'Content-Type' => 'application/json' }
+    expected = "{\"id\":1,\"origin_point\":\"A\",\"destination_point\":\"D\",\"distance\":20}"
+    assert_equal expected, last_response.body
+  end
+
   def test_calculate_cost
     seed_file = File.join('db/seeds.rb')
     load(seed_file) if File.exists?(seed_file)

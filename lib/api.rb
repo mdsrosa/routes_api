@@ -11,6 +11,11 @@ class RoutesAPIApp < Sinatra::Base
     Route.all.to_json
   end
 
+  post '/routes' do
+    route = Route.create(params)
+    route.to_json
+  end
+
   post '/routes/calculate-cost' do
     origin_point = params[:origin_point]
     destination_point = params[:destination_point]
