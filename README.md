@@ -11,7 +11,7 @@ cd routes_api
 bundle install
 ```
 
-### Running local server
+### Running Locally
 ```bash
 rackup -p 4567 -s puma
 ```
