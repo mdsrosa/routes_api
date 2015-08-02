@@ -2,15 +2,15 @@
 development:
   adapter: postgresql
   host: localhost
-  username: 'matheusrosa'
+  username: matheusrosa
   password: ''
-  database: 'routes_api_development'
+  database: routes_api_development
 test:
   adapter: postgresql
   host: localhost
-  username: 'matheusrosa'
+  username: matheusrosa
   password: ''
-  database: 'routes_api_test'
+  database: routes_api_test
 production:
   adapter: postgresql
   username: routes-api

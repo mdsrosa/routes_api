@@ -1,5 +1,4 @@
 require 'yaml/store'
-require 'erb'
 
 class DBConfig
   class UnknownEnvironment < StandardError; end
@@ -24,6 +23,6 @@ class DBConfig
 
   private
   def store
-    @store ||= YAML::Store.new(ERB.new(file).result)
+    @store ||= YAML::Store.new(file)
   end
 end

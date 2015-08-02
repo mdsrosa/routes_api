@@ -1,5 +1,6 @@
 $:.unshift File.expand_path('./../lib', __FILE__)
 require 'rake/testtask'
+require 'erb'
 
 namespace :db do
   desc "Create a migration (parameters: NAME, VERSION)"
