@@ -25,7 +25,7 @@ This endpoint lists all routes in the database.
 #### cURL Example
 
 ```bash
-$ curl http://localhost:4567/routes
+$ curl http://routes-api.herokuapp.com/routes
 ```
 #### Response Example
 ```bash
@@ -50,7 +50,7 @@ Name            | Type | Description | Example
 
 ##### cURL Example
 ```bash
-$ curl -X POST http://localhost:4567/routes \
+$ curl -X POST http://routes-api.herokuapp.com/routes \
 -H "Content-Type: application/json" \
 -d '{"origin_point": "A", "destination_point": "D", "distance": 10}'
 ```
@@ -75,10 +75,9 @@ Name            | Type | Description | Example
 
 ##### cURL Example
 ```bash
-$ curl -X POST http://localhost:4567/routes/calculate-cost \
+$ curl -X POST http://routes-api.herokuapp.com/routes/calculate-cost \
 -H "Content-Type: application/json" \
--d '{"origin_point": "A", "destination_point": "D", 
-	  "autonomy": 10, "fuel_price": 2.5}'
+-d '{"origin_point": "A", "destination_point": "D", "autonomy": 10, "fuel_price": 2.5}'
 ```
 ##### Response Example
 ```json
