@@ -1,6 +1,6 @@
 # Routes API
 
-API to calculate the shortest path and the cost to a given route (origin point and destination point), based on fuel price and truck's autonomy.
+API to calculate the shortest path and the cost to a given route (origin point and destination point), based on fuel price and vehicle's autonomy.
 
 # Installation
 ###### **Considering you already have a ruby development environment setup.**
