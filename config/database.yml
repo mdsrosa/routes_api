@@ -15,7 +15,6 @@ test:
 
 production:
   adapter: postgresql
-  host: localhost
-  username: ''
-  password: ''
-  database: 'routes_api'
+  username: routes-api
+  password: <%= ENV['ROUTES-API_DATABASE_PASSWORD'] %>
+  database: routes-api_production
