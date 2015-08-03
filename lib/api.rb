@@ -5,6 +5,13 @@ class RoutesAPIApp < Sinatra::Base
   include RoutesModule::Helpers
   helpers Sinatra::Param
 
+  PARAMS = {
+    :origin_point => {:type => String, :required => true},
+    :destination_point => {:type => String, :required => true},
+    :autonomy => {:type => String, :required => true},
+    :fuel_price => {:type => String, :required => true}
+  }
+
   set :raise_sinatra_param_exceptions, true
   set :show_exceptions, false
   set :raise_errors, true
@@ -37,10 +44,9 @@ class RoutesAPIApp < Sinatra::Base
   end
 
   post '/routes/calculate-cost' do
-    param :origin_point, String, required: true
-    param :destination_point, String, required: true
-    param :autonomy, Integer, required: true
-    param :fuel_price, Float, required: true
+    PARAMS.keys.each do |key, value|
+      param "#{key}", PARAMS[key][:type], required: PARAMS[key][:required]
+    end
 
     origin_point = params[:origin_point]
     destination_point = params[:destination_point]
