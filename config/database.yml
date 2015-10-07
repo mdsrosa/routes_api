@@ -3,13 +3,11 @@ development:
   adapter: postgresql
   host: localhost
   username: mrosa
-  password: ''
   database: routes_api_development
 test:
   adapter: postgresql
   host: localhost
-  username: mrosa
-  password: ''
+  username: postgres
   database: routes_api_test
 production:
   adapter: postgresql
