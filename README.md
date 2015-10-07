@@ -1,4 +1,5 @@
 # Routes API
+[![Build Status](https://travis-ci.org/mdsrosa/routes_api.svg?branch=master)](https://travis-ci.org/mdsrosa/routes_api)
 
 API to calculate the shortest path and the cost to a given route (origin point and destination point), based on fuel price and vehicle's autonomy.
 
