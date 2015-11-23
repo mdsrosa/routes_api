@@ -48,8 +48,4 @@ class Graph
     end
     return path, @vertices[target].dist
   end
-
-  def to_s
-    "#<%s vertices=%p edges=%p>" % [self.class.name, @vertices.values, @edges]
-  end
 end
