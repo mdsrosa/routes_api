@@ -10,6 +10,12 @@ class APITest < MiniTest::Test
     RoutesAPIApp
   end
 
+  def test_index_endpoint
+    get '/'
+    expected = 'Routes API :)'
+    assert_equal expected, last_response.body
+  end
+
   def test_show_all_routes
     route = Route.create(:origin_point => 'A', :destination_point => 'D', :distance => 20)
     get '/routes'
